@@ -1,0 +1,148 @@
+{
+  "atomos": {
+    "X1": "Juan estudia",
+    "X2": "Juan entrega la tarea",
+    "X3": "Juan aprueba el examen",
+    "X4": "Juan obtiene su certificado",
+    "X5": "hay energía",
+    "X6": "la máquina funciona",
+    "X7": "Elsy hace ejercicio",
+    "X8": "Elsy va a tener cuadritos",
+    "X9": "Elsy ya tiene cuadritos",
+    "X10": "Elsy come mucho",
+    "X11": "Elsy va a perder sus cuadritos",
+    "X12": "Elsy duerme temprano",
+    "X13": "Elsy le duele la cabeza",
+    "X14": "Ramon deja tarea",
+    "X15": "Ramon tampoco deja examen",
+    "X16": "Ramon duermo mas",
+    "X17": "es de dia",
+    "X18": "sale el sol",
+    "X19": "Ramon deja examen",
+    "X20": "Elsy duerme mas"
+  },
+  "reglas": [
+    {
+      "id": "R1",
+      "original": "Si Juan estudia y entrega la tarea, entonces aprueba el examen",
+      "formula": "(X1 ∧ X2) → X3",
+      "atomos": [
+        "X1",
+        "X2",
+        "X3"
+      ]
+    },
+    {
+      "id": "R2",
+      "original": "Si Juan aprueba el examen, entonces obtiene su certificado",
+      "formula": "X3 → X4",
+      "atomos": [
+        "X3",
+        "X4"
+      ]
+    },
+    {
+      "id": "R3",
+      "original": "Si no hay energía, entonces la máquina no funciona",
+      "formula": "¬X5 → ¬X6",
+      "atomos": [
+        "X5",
+        "X6"
+      ]
+    },
+    {
+      "id": "R4",
+      "original": "Si Elsy hace ejercicio, entonces va a tener cuadritos",
+      "formula": "X7 → X8",
+      "atomos": [
+        "X7",
+        "X8"
+      ]
+    },
+    {
+      "id": "R5",
+      "original": "Si Elsy ya tiene cuadritos y come mucho, entonces va a perder sus cuadritos",
+      "formula": "(X9 ∧ X10) → X11",
+      "atomos": [
+        "X9",
+        "X10",
+        "X11"
+      ]
+    },
+    {
+      "id": "R6",
+      "original": "Si Elsy no duerme temprano, entonces le duele la cabeza",
+      "formula": "¬X12 → X13",
+      "atomos": [
+        "X12",
+        "X13"
+      ]
+    },
+    {
+      "id": "R7",
+      "original": "Si Ramon no deja tarea y tampoco deja examen, entonces duermo mas",
+      "formula": "(¬X14 ∧ X15) → X16",
+      "atomos": [
+        "X14",
+        "X15",
+        "X16"
+      ]
+    },
+    {
+      "id": "R8",
+      "original": "Si es de dia, entonces sale el sol",
+      "formula": "X17 → X18",
+      "atomos": [
+        "X17",
+        "X18"
+      ]
+    },
+    {
+      "id": "R9",
+      "original": "Si Juan estudia y entrega la tarea, entonces aprueba el examen",
+      "formula": "(X1 ∧ X2) → X3",
+      "atomos": [
+        "X1",
+        "X2",
+        "X3"
+      ]
+    },
+    {
+      "id": "R10",
+      "original": "Si Ramon no deja examen, entonces Elsy duerme mas",
+      "formula": "¬X19 → X20",
+      "atomos": [
+        "X19",
+        "X20"
+      ]
+    },
+    {
+      "id": "R11",
+      "original": "Si Juan estudia y entrega la tarea, entonces aprueba el examen",
+      "formula": "(X1 ∧ X2) → X3",
+      "atomos": [
+        "X1",
+        "X2",
+        "X3"
+      ]
+    },
+    {
+      "id": "R12",
+      "original": "Si Juan aprueba el examen, entonces obtiene su certificado",
+      "formula": "X3 → X4",
+      "atomos": [
+        "X3",
+        "X4"
+      ]
+    },
+    {
+      "id": "R13",
+      "original": "Si no hay energía, entonces la máquina no funciona",
+      "formula": "¬X5 → ¬X6",
+      "atomos": [
+        "X5",
+        "X6"
+      ]
+    }
+  ]
+}
