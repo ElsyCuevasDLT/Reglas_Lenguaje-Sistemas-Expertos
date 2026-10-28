@@ -1,0 +1,376 @@
+{
+  "atomos": {
+    "p": "hay energía eléctrica",
+    "q": "el interruptor principal está encendido",
+    "r": "el botón de emergencia está liberado",
+    "s": "la guarda de seguridad está cerrada",
+    "t": "hay presión de aire",
+    "u": "hay una pieza en la estación",
+    "v": "el sensor detecta la pieza",
+    "w": "la cámara está lista",
+    "x": "el robot está en posición inicial",
+    "y": "hay una falla activa",
+    "z": "el tablero está energizado",
+    "a": "el circuito de seguridad está habilitado",
+    "b": "el controlador está listo",
+    "c": "el cilindro puede sujetar la pieza",
+    "d": "la pieza está preparada",
+    "e": "la inspección puede comenzar",
+    "f": "el ciclo está autorizado",
+    "g": "el robot puede iniciar el movimiento",
+    "h": "el indicador verde está encendido",
+    "i": "el sistema registra el inicio del ciclo",
+    "j": "el historial está actualizado",
+    "k": "el indicador rojo está encendido",
+    "l": "la pieza cumple la tolerancia",
+    "m": "la pieza requiere retrabajo",
+    "n": "el resultado de inspección es aceptado",
+    "o": "el resultado de inspección es rechazado",
+    "p2": "la pieza pasa a la estación siguiente",
+    "q2": "la pieza pasa a revisión manual",
+    "r2": "la pieza tiene un destino asignado",
+    "s2": "tengo dinero",
+    "t2": "me compro el Iphone",
+    "u2": "Voy a tener dinero",
+    "v2": "me paguen",
+    "w2": "me compre el iphone",
+    "x2": "voy a ver tiktok",
+    "y2": "le comprare funda"
+  },
+  "reglas": [
+    {
+      "id": "R1",
+      "original": "hay energía eléctrica",
+      "formula": "p",
+      "atomos": [
+        "p"
+      ]
+    },
+    {
+      "id": "R2",
+      "original": "el interruptor principal está encendido",
+      "formula": "q",
+      "atomos": [
+        "q"
+      ]
+    },
+    {
+      "id": "R3",
+      "original": "el botón de emergencia está liberado",
+      "formula": "r",
+      "atomos": [
+        "r"
+      ]
+    },
+    {
+      "id": "R4",
+      "original": "la guarda de seguridad está cerrada",
+      "formula": "s",
+      "atomos": [
+        "s"
+      ]
+    },
+    {
+      "id": "R5",
+      "original": "hay presión de aire",
+      "formula": "t",
+      "atomos": [
+        "t"
+      ]
+    },
+    {
+      "id": "R6",
+      "original": "hay una pieza en la estación",
+      "formula": "u",
+      "atomos": [
+        "u"
+      ]
+    },
+    {
+      "id": "R7",
+      "original": "el sensor detecta la pieza",
+      "formula": "v",
+      "atomos": [
+        "v"
+      ]
+    },
+    {
+      "id": "R8",
+      "original": "la cámara está lista",
+      "formula": "w",
+      "atomos": [
+        "w"
+      ]
+    },
+    {
+      "id": "R9",
+      "original": "el robot está en posición inicial",
+      "formula": "x",
+      "atomos": [
+        "x"
+      ]
+    },
+    {
+      "id": "R10",
+      "original": "no hay una falla activa",
+      "formula": "¬y",
+      "atomos": [
+        "y"
+      ]
+    },
+    {
+      "id": "R11",
+      "original": "Si hay energía eléctrica y el interruptor principal está encendido, entonces el tablero está energizado",
+      "formula": "((p ∧ q) → z)",
+      "atomos": [
+        "p",
+        "q",
+        "z"
+      ]
+    },
+    {
+      "id": "R12",
+      "original": "Si el botón de emergencia está liberado y la guarda de seguridad está cerrada, entonces el circuito de seguridad está habilitado",
+      "formula": "((r ∧ s) → a)",
+      "atomos": [
+        "r",
+        "s",
+        "a"
+      ]
+    },
+    {
+      "id": "R13",
+      "original": "Si el tablero está energizado y el circuito de seguridad está habilitado, entonces el controlador está listo",
+      "formula": "((z ∧ a) → b)",
+      "atomos": [
+        "z",
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "R14",
+      "original": "Si hay presión de aire y hay una pieza en la estación, entonces el cilindro puede sujetar la pieza",
+      "formula": "((t ∧ u) → c)",
+      "atomos": [
+        "t",
+        "u",
+        "c"
+      ]
+    },
+    {
+      "id": "R15",
+      "original": "Si el cilindro puede sujetar la pieza y el sensor detecta la pieza, entonces la pieza está preparada",
+      "formula": "((c ∧ v) → d)",
+      "atomos": [
+        "c",
+        "v",
+        "d"
+      ]
+    },
+    {
+      "id": "R16",
+      "original": "Si la cámara está lista y la pieza está preparada, entonces la inspección puede comenzar",
+      "formula": "((w ∧ d) → e)",
+      "atomos": [
+        "w",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "id": "R17",
+      "original": "Si el controlador está listo y (la inspección puede comenzar y el robot está en posición inicial), entonces el ciclo está autorizado",
+      "formula": "((b ∧ (e ∧ x)) → f)",
+      "atomos": [
+        "b",
+        "e",
+        "x",
+        "f"
+      ]
+    },
+    {
+      "id": "R18",
+      "original": "Si el ciclo está autorizado y no hay una falla activa, entonces el robot puede iniciar el movimiento",
+      "formula": "((f ∧ ¬y) → g)",
+      "atomos": [
+        "f",
+        "y",
+        "g"
+      ]
+    },
+    {
+      "id": "R19",
+      "original": "el indicador verde está encendido si y solo si el ciclo está autorizado",
+      "formula": "(h ↔ f)",
+      "atomos": [
+        "h",
+        "f"
+      ]
+    },
+    {
+      "id": "R20",
+      "original": "Si el robot puede iniciar el movimiento, entonces el sistema registra el inicio del ciclo",
+      "formula": "(g → i)",
+      "atomos": [
+        "g",
+        "i"
+      ]
+    },
+    {
+      "id": "R21",
+      "original": "Si el sistema registra el inicio del ciclo, entonces el historial está actualizado",
+      "formula": "(i → j)",
+      "atomos": [
+        "i",
+        "j"
+      ]
+    },
+    {
+      "id": "R22",
+      "original": "Si hay una falla activa, entonces el indicador rojo está encendido",
+      "formula": "(y → k)",
+      "atomos": [
+        "y",
+        "k"
+      ]
+    },
+    {
+      "id": "R23",
+      "original": "Si el indicador rojo está encendido, entonces no el robot puede iniciar el movimiento",
+      "formula": "(k → ¬g)",
+      "atomos": [
+        "k",
+        "g"
+      ]
+    },
+    {
+      "id": "R24",
+      "original": "Si no hay energía eléctrica, entonces no el tablero está energizado",
+      "formula": "(¬p → ¬z)",
+      "atomos": [
+        "p",
+        "z"
+      ]
+    },
+    {
+      "id": "R25",
+      "original": "Si no la guarda de seguridad está cerrada, entonces no el circuito de seguridad está habilitado",
+      "formula": "(¬s → ¬a)",
+      "atomos": [
+        "s",
+        "a"
+      ]
+    },
+    {
+      "id": "R26",
+      "original": "la pieza cumple la tolerancia o la pieza requiere retrabajo",
+      "formula": "(l ∨ m)",
+      "atomos": [
+        "l",
+        "m"
+      ]
+    },
+    {
+      "id": "R27",
+      "original": "Si la pieza cumple la tolerancia, entonces el resultado de inspección es aceptado",
+      "formula": "(l → n)",
+      "atomos": [
+        "l",
+        "n"
+      ]
+    },
+    {
+      "id": "R28",
+      "original": "Si la pieza requiere retrabajo, entonces el resultado de inspección es rechazado",
+      "formula": "(m → o)",
+      "atomos": [
+        "m",
+        "o"
+      ]
+    },
+    {
+      "id": "R29",
+      "original": "Si el resultado de inspección es aceptado, entonces la pieza pasa a la estación siguiente",
+      "formula": "(n → p2)",
+      "atomos": [
+        "n",
+        "p2"
+      ]
+    },
+    {
+      "id": "R30",
+      "original": "Si el resultado de inspección es rechazado, entonces la pieza pasa a revisión manual",
+      "formula": "(o → q2)",
+      "atomos": [
+        "o",
+        "q2"
+      ]
+    },
+    {
+      "id": "R31",
+      "original": "no (el resultado de inspección es aceptado y el resultado de inspección es rechazado)",
+      "formula": "¬((n ∧ o))",
+      "atomos": [
+        "n",
+        "o"
+      ]
+    },
+    {
+      "id": "R32",
+      "original": "Si la pieza pasa a la estación siguiente o la pieza pasa a revisión manual, entonces la pieza tiene un destino asignado",
+      "formula": "((p2 ∨ q2) → r2)",
+      "atomos": [
+        "p2",
+        "q2",
+        "r2"
+      ]
+    },
+    {
+      "id": "R33",
+      "original": "Si tengo dinero, me compro el Iphone",
+      "formula": "(s2 → t2)",
+      "atomos": [
+        "s2",
+        "t2"
+      ]
+    },
+    {
+      "id": "R34",
+      "original": "Voy a tener dinero cuando me paguen",
+      "formula": "(v2 → u2)",
+      "atomos": [
+        "v2",
+        "u2"
+      ]
+    },
+    {
+      "id": "R35",
+      "original": "Si tengo dinero, me compro el iphone",
+      "formula": "(s2 → t2)",
+      "atomos": [
+        "s2",
+        "t2"
+      ]
+    },
+    {
+      "id": "R36",
+      "original": "Cuando me compre el iphone, voy a ver tiktok",
+      "formula": "(w2 → x2)",
+      "atomos": [
+        "w2",
+        "x2"
+      ]
+    },
+    {
+      "id": "R37",
+      "original": "Si me compre el iphone y tengo dinero, entonces le comprare funda",
+      "formula": "((w2 ∧ s2) → y2)",
+      "atomos": [
+        "w2",
+        "s2",
+        "y2"
+      ]
+    }
+  ]
+}

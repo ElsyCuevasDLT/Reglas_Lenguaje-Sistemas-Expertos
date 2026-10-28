@@ -1,0 +1,54 @@
+SISTEMAS EXPERTOS — ELSY VALERIA CUEVAS DE LA TORRE (23310379)
+VERSIÓN CORREGIDA: MÁS CONECTORES EN ESPAÑOL
+
+INICIO EN WINDOWS
+Extrae toda la carpeta y haz doble clic en START_Program.bat.
+Necesitas Python 3.10+ con Tkinter. No requiere IA ni paquetes de pip.
+
+USO
+1. Escribe una oración o regla por línea.
+2. Pulsa «Analizar y guardar» y comprueba los átomos y las reglas.
+3. Pulsa «Construir árbol y modelos de la base».
+4. Aparecerá una ventana nueva con el árbol; rosa = rama cerrada, verde = abierta.
+5. Usa zoom y desplazamiento para consultar el árbol.
+6. El botón «Guía de conectores» enumera conectores y ejemplos.
+
+CONECTORES ADMITIDOS
+- ∧: y, e, además, pero, aunque, así como.
+- ∨: o, u, o bien; «a menos que» y «salvo que» como disyunción inclusiva.
+- ¬: no, tampoco, es falso que, no es cierto que.
+- →: Si A entonces B; Si A, B; Cuando A, B; A implica B.
+      A si B equivale a B → A.
+      A solo si B equivale a A → B.
+- ↔: A si y solo si B; A equivale a B.
+Se aceptan símbolos ∧, ∨, ¬, →, ↔ y paréntesis.
+Comillas dobles protegen un átomo con «y» u «o» como palabras literales.
+
+Para probar varios conectores de golpe, copia los 10 renglones de
+Ejemplos_Conectores.txt al editor y guárdalos.
+
+CONSERVACIÓN
+- Se incluye conocimiento_elsy.json como estaba en el ZIP entregado.
+- El código antiguo permanece en original.py como respaldo.
+- La interfaz de Elsy se conserva, diferente de la de Saulo.
+- El archivo lenguaje_espanol.py ES NECESARIO junto con motor.py y
+  analizador_grafico.py. No separes los archivos.
+- Se mantiene la asignación de átomos sin duplicaciones por texto normalizado.
+
+AVISOS
+El analizador no es un traductor universal. En oraciones ambiguas hay que
+usar paréntesis o reformular. Los modelos abiertos pueden tener valores libres.
+El árbol está limitado a 6000 nodos y 8 segundos. Si se cancela o se agota
+el límite, el análisis es INCOMPLETO y no permite concluir que las reglas
+se contradicen. No usa un SAT Solver externo.
+
+PRUEBAS
+En la carpeta: python -m unittest discover -v
+
+CORRECCIÓN DE «SOLO SI» AL INICIO (27/10/2026)
+- «Solo si, estudio para el examen, apruebo» se interpreta «apruebo → estudio para el examen».
+- También acepta «Solo si estudio para el examen, apruebo».
+- «Apruebo solo si estudio para el examen» tiene el mismo significado.
+- «Si estudio para el examen, entonces apruebo» tiene la flecha inversa: estudiar → aprobar.
+- Se admiten subexpresiones con paréntesis en los argumentos de «Solo si».
+- También se admite «Si y solo si, A, B» como bicondicional A ↔ B.
